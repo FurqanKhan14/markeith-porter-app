@@ -1,0 +1,332 @@
+/*******************
+	Pages General Calsses Start   
+***********************************/
+
+
+/* Bootstrap text color utilities */
+.text-primary { color: var(--bs-primary) !important; }
+.text-secondary { color: var(--bs-secondary) !important; }
+.text-success { color: var(--bs-success) !important; }
+.text-danger { color: var(--bs-danger) !important; }
+.text-warning { color: var(--bs-warning) !important; }
+.text-info { color: var(--bs-info) !important; }
+.text-light { color: var(--bs-light) !important; }
+.text-dark { color: var(--bs-dark) !important; }
+.text-white { color: var(--bs-white) !important; }
+.text-muted { color: var(--bs-secondary) !important; }
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--bs-primary);
+}
+.bg-secondary {
+  background-color: var(--bs-secondary);
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--bs-primary-text-color);
+}
+.text-secondary {
+  color: var(--bs-secondary-text-color);
+}
+
+/* Shadow */
+.shadow-none {
+  box-shadow: none !important;
+}
+.shadow-sm {
+  box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%) !important;
+}
+
+/* Borders Radius */
+.rounded-7 {
+  border-radius: 7px !important;
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+.rounded-20 {
+  border-radius: 20px;
+}
+
+.admin-content-header {
+  display: flex;
+  margin-bottom: 2rem;
+
+  h2 {
+    color: var(--bs-black);
+    text-transform: capitalize;
+    font-family: "Georgia", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* font-family: 'Calibri', sans-serif; */
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+  }
+
+  .page-back {
+    color: var(--primaryColor);
+    margin: 5px 10px 0 0px;
+    font-size: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    justify-content: start;
+    cursor: pointer;
+    background-color: #FBFBFB;
+  }
+}
+
+.admin-content-body {
+  border: 1px solid rgba(215, 215, 215, 0.18);
+  background: #FBFBFB;
+  box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.10);
+}
+
+/* Admin Content End */
+
+/* Width */
+.w-auto {
+  width: auto !important;
+}
+
+.min-width-120 {
+  min-width: 120px;
+}
+
+.min-width-130 {
+  min-width: 130px;
+}
+
+.min-width-150 {
+  min-width: 150px;
+}
+
+.min-width-160 {
+  min-width: 160px;
+}
+
+.min-width-180 {
+  min-width: 180px;
+}
+
+.min-width-190 {
+  min-width: 190px !important;
+}
+
+.min-width-200 {
+  min-width: 200px;
+}
+
+.min-width-220 {
+  min-width: 220px;
+}
+
+.min-width-230 {
+  min-width: 230px;
+}
+
+.min-width-250 {
+  min-width: 250px;
+}
+
+.min-width-300 {
+  min-width: 300px !important;
+}
+
+.min-width-50 {
+  min-width: 50%;
+}
+
+.min-width-auto {
+  min-width: auto !important;
+}
+
+
+/* Status Tags START */
+
+/* Text Tags */
+.status-tag {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.success-tag {
+  color: var(--success-tag) !important;
+}
+.danger-tag {
+  color: var(--danger-tag) !important;
+}
+.warning-tag {
+  color: var(--warning-tag) !important;
+}
+
+/* Status Background Tags END */
+.status-tag-bg {
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 6px;
+}
+.status-tag-bg.success-tag {
+  color: var(--bs-white) !important;
+  background-color: var(--success-tag);
+}
+.status-tag-bg.danger-tag {
+  color: var(--bs-white) !important;
+  background-color: var(--danger-tag);
+}
+.status-tag-bg.warning-tag {
+  color: var(--bs-white) !important;
+  background-color: var(--danger-tag);
+}
+
+
+
+
+/* Status Tags END */
+
+
+
+/*******************
+Pages General Classes End   
+***********************************/
+
+/******** Detail Block START
+**************************/
+.detail-box h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bs-black);
+  text-transform: capitalize;
+}
+
+.detail-box h5 em {
+  font-size: 12px;
+  color: var(--bs-white);
+}
+
+.detail-box h6 {
+  font-size: 20px;
+  color: #15355E;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.detail-box p {
+  font-size: 18px;
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.admin-profile-img {
+  max-width: 130px;
+}
+
+.admin-profile-img img {
+  max-width: 130px;
+  width: 130px;
+  border: 0px solid transparent;
+  box-shadow: 0px 0px 0px 3px #ffffff;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-upload-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-profile-btn {
+  width: 45px;
+  height: 45px;
+  background-color: var(--bs-header-bg);
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid var(--bs-primary);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  color: var(--bs-primary);
+  padding: 0 0 0 1px;
+  display: inline-flex;
+  transition: all .3s ease-in-out;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.btn.camera-btn:hover {
+  color: var(--bs-white);
+  outline: none;
+  box-shadow: none;
+  --x: 100%;
+  --c1: #cf0030;
+  --c2: #fe8224;
+}
+
+/********Detail Block END
+**************************/
+
+/******** Table Defult Style START
+**************************/
+table {
+  border-collapse: collapse;
+}
+
+table.table-bordered thead th {
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+  padding: 0.8rem 1rem;
+}
+
+table.table-bordered td {
+  padding: 0.9rem 1rem;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #CCCCCC;
+}
+
+.table-bordered {}
+
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 1px;
+  color: var(--tableHeaderColor);
+}
+
+.table th,
+.table td {
+  color: var(--tableHeaderColor);
+  padding: 0.75rem 0.5rem;
+}
+
+table thead tr th:last-child {}
+
+table thead th {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.table thead th {
+  color: var(--tableHeaderColor);
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/******** Table Defult Style END
+**************************/

@@ -1,0 +1,25 @@
+// 1. Bootstrap core dependencies
+@import "bootstrap/scss/functions";
+
+// 2. Your base config
+@import "base/variables";  // Custom variables you want to define *before* Bootstrap
+// @import "base/mixins";     // Your custom mixins
+
+// 3. Theme overrides (based on [data-theme])
+@import "themes/theme-primary";
+@import "themes/theme-dark";
+@import "themes/theme-yellow";
+// @import "themes/theme-purple";
+
+// 4. Bootstrap variable overrides
+@import "bootstrap/scss/variables";
+
+// 5. Optional: If you have a shared _variables.scss with extra overrides
+// @import "./_variables";
+
+// 6. Bootstrap core styles
+@import "bootstrap/scss/bootstrap";
+
+// 7. Your custom utility classes
+@import "base/custom";
+

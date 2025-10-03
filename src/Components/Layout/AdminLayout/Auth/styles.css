@@ -1,0 +1,162 @@
+.admin-login-wrap {
+  background-position: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  justify-content: center;
+  background-image: url(../../../../Assets/images/authBg.png);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 70px 0px;
+}
+
+/* .login-card {
+  border-radius: 0px;
+  border: 0px solid #C5E4F6;
+  box-shadow: 0px 0px 60px 3.853px rgba(0, 0, 0, 0.10);
+} */
+
+/* .login-card .right img {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  min-height: 100%;
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+  object-position: center;
+
+} */
+/* 
+.login-card .left .adminAuthLogo {
+  width: 350px;
+  height: auto;
+} */
+
+
+/* Form */
+.admin-login-wrap .authFormWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #FFF;
+  box-shadow: none;
+  position: relative;
+  border-radius: 26px;
+}
+
+.admin-login-wrap .authForm {
+  border-radius: 20px;
+  padding: 2rem 4rem;
+  width: 100%;
+  background: #42425D;
+}
+
+.authTitle {
+  font-weight: 600;
+  font-size: 40px;
+  text-transform: capitalize;
+  color: #FDD91F;
+}
+
+.authPara {
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  text-transform: capitalize;
+}
+
+
+
+
+
+/* 
+
+.authformBg {
+  background: var(--body-bg-color);
+  max-height: 800px;
+  height: 100%;
+}
+
+.authBg {
+  background: var(--primary-color);
+}
+
+.auth-wrapper {
+  min-height: 100vh;
+}
+
+.authBox {
+  border-radius: 0.5rem;
+}
+
+.authBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  min-height: calc(100vh - 50px);
+  height: 100%;
+  position: relative;
+}
+
+.authBackground img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 1100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.authImage img {
+  width: 100%;
+  max-width: 100%;
+  min-height: 90vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px 0 0 10px;
+}
+
+.authForm {
+  border-radius: 30px;
+  padding: 5rem 7rem;
+  width: 100%;
+}
+
+.authForm p {
+  color: var(--table-td-color);
+}
+
+.authLogo {
+  margin-bottom: 1rem;
+} */
+
+
+@media screen and (max-width: 1199px) {
+  .authForm {
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .authLogo img {
+    width: 200px;
+  }
+
+  .authformBg {
+    max-height: 940px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .authForm {
+    padding: 2rem;
+  }
+
+  .authTitle {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,94 @@
+:root {
+  // Bootstrap Standard Colors
+  --bs-primary: #3C5726;
+  --bs-secondary: #6c757d;
+  --bs-success: #28a745;
+  --bs-danger: #dc3545;
+  --bs-warning: #ffc107;
+  --bs-info: #17a2b8;
+  --bs-light: #f8f9fa;
+  --bs-dark: #343a40;
+  --bs-white: #ffffff;
+  --bs-black: #000000;
+
+  // Bootstrap Body & Border Colors
+  --bs-body-bg: #3C5726;
+  --bs-body-color: #212529;
+
+
+  // Bootstrap Text Colors
+  --bs-primary-text-color: var(--primary-text-color);
+  --bs-secondary-text-color: #646464;
+
+  // Bootstrap Button Gradients
+  --bs-btn-gradient-1: #364e22;
+  --bs-btn-gradient-2: #69a13b;
+  --bs-primary-gradient: linear-gradient(55deg,
+      var(--bs-btn-gradient-1),
+      var(--bs-btn-gradient-2) 55%,
+      var(--bs-btn-gradient-1));
+
+  // Bootstrap Input Focus
+  --bs-input-focus-border-color: var(--bs-primary);
+
+  // Bootstrap Header
+  --bs-header-bg: #D7E8D1;
+
+  // Your Existing Theme Colors
+  // --primary-color: #3C5726;
+  // --secondary-color: #6c757d;
+  // --body-bg-color: #f8f9fa;
+  // --content-bg-color: #ffffff;
+
+  // Dashboard Colors
+  --dash-icon-color: #3C5726;
+  --dash-icon-wrapper-bg: #f8f9fa;
+
+  // Pagination Colors
+  --pagination-bg-color: #3C5726;
+  --pagination-text-color: #fff;
+  --pagination-hover-text-color: #000;
+
+  // Text Colors
+  --primary-text-color: #212529;
+  --secondary-text-color: #6c757d;
+  --colored-heading: #3C5726;
+  --contrast-text-color: #ffffff;
+
+  --detail-label-color: #6c757d;
+  --table-td-color: #212529;
+
+  // Input Colors
+  --input-bg-color: #fff;
+  --input-label-color: #000000;
+  --input-focus-color: #3C5726;
+  --input-text-color: #000000;
+  --bs-border-color: #cbcbcb;
+
+  // Button Colors
+  --btn-primary-color: #3C5726;
+  --btn-secondary-color: #6c757d;
+  --btn-text-color: #fff;
+  --btn-text-hover-color: #000;
+
+  // Table Colors
+  --table-header-bg: var(--bs-header-bg);
+  --table-header-color: #000000;
+  --table-body-color: #000000;
+  --table-bg: transparent;
+  --table-color: #000;
+  --table-border-color: rgba(102, 102, 102, 0.20);
+  --table-border-width: 1px;
+  --table-hover-bg: #f8f9fa;
+
+  // Status Tags
+  --success-tag: #119200;
+  --danger-tag: #FF0000;
+  --warning-tag: #ffb818;
+  --info-tag: #17a2b8;
+  --light-tag: #f8f9fa;
+  --dark-tag: #343a40;
+  --white-tag: #ffffff;
+  --black-tag: #000000;
+  --muted-tag: #6c757d;
+}

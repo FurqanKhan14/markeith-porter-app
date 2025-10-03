@@ -1,0 +1,54 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: var(--bs-primary-text-color, var(--primary-text-color));
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  font-size: 28px;
+  font-style: normal;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.2s ease-out;
+}
+
+.back-button:hover {
+  color: var(--bs-primary-text-color, var(--primary-text-color));
+  text-decoration: none;
+  transform: translateX(-2px);
+}
+
+.back-button .icon {
+  font-size: 1.2rem;
+  color: var(--bs-primary-text-color, var(--primary-text-color));
+}
+
+@media screen and (max-width: 767px) {
+  .backButton {
+    font-size: 13px;
+
+    svg {
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .backButton {
+    margin-right: 8px;
+    font-size: 12px;
+
+    & p {
+      margin-top: 0;
+      margin-left: 6px;
+    }
+
+    svg {
+      height: 17px;
+    }
+  }
+}

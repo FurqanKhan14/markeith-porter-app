@@ -1,0 +1,21 @@
+.promo-code-management input[type="text"],
+.code-error {
+  min-width: 350px;
+  width: auto;
+}
+
+
+
+.promo-code-management input[type="number"] {
+    min-width: 350px;
+    width: auto;
+}
+
+
+@media screen and (max-width: 1199.5px) {
+    .promo-code-management input[type="number"],
+    .promo-code-management input[type="text"] {
+        width: 100%;
+        min-width: unset;
+    }
+}

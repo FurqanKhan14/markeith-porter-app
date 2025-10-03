@@ -1,0 +1,56 @@
+[data-theme='dark'] {
+  --bs-primary-text-color: var(--primary-text-color);
+  --bs-secondary-text-color: #adb5bd;
+
+  // Bootstrap Button Gradients for Dark Theme
+  --bs-btn-gradient-1: #0a0e0a;
+  --bs-btn-gradient-2: #1a3d1a;
+  --bs-primary-gradient: linear-gradient(55deg,
+      var(--bs-btn-gradient-1),
+      var(--bs-btn-gradient-2) 55%,
+      var(--bs-btn-gradient-1));
+
+  // Bootstrap Input Focus
+  --bs-input-focus-border-color: var(--bs-primary);
+
+  // Bootstrap Header for Dark Theme
+  --bs-header-bg: #2d3a2d;
+
+  --primary-color: #0d6efd;
+  --secondary-color: #adb5bd;
+  --body-bg-color: #212529;
+  --content-bg-color: #343a40;
+
+  --dash-icon-color: #0d6efd;
+  --dash-icon-wrapper-bg: #495057;
+
+  --pagination-bg-color: #0d6efd;
+  --pagination-text-color: #fff;
+  --pagination-hover-text-color: #000;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #adb5bd;
+  --colored-heading: #ffffff;
+  --contrast-text-color: #000;
+  --detail-label-color: #adb5bd;
+  --table-td-color: #ffffff;
+
+  --input-bg-color: #495057;
+  --input-label-color: #ffffff;
+  --input-focus-color: #0d6efd;
+
+  --btn-primary-color: #0d6efd;
+  --btn-secondary-color: #adb5bd;
+  --btn-text-color: #fff;
+  --btn-text-hover-color: #000;
+
+  // Table Colors for Dark Theme
+  --table-header-bg: var(--bs-header-bg);
+  --table-header-color: #ffffff;
+  --table-body-color: #ffffff;
+  --table-bg: transparent;
+  --table-color: #ffffff;
+  --table-border-color: rgba(255, 255, 255, 0.10);
+  --table-border-width: 1px;
+  --table-hover-bg: #495057;
+}

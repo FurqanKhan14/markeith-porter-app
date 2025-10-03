@@ -1,0 +1,16 @@
+.theme-blue {
+  --bs-primary: #007bff;
+  --bs-secondary: #6c757d;
+}
+
+.theme-green {
+  --bs-primary: #28a745;
+  --bs-secondary: #20c997;
+}
+
+.theme-dark {
+  --bs-primary: #0d6efd;
+  --bs-secondary: #adb5bd;
+  --bs-bg: #212529;
+  --bs-body-color: #fff;
+}

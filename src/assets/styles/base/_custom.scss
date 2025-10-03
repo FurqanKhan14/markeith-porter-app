@@ -1,0 +1,21 @@
+// Add custom classes using Bootstrap's mixins
+.btn-black {
+  @include button-variant($black, $white);
+}
+
+.btn-green {
+  @include button-variant($blue, $white);
+}
+
+
+.text-primary {
+  color: $primary !important;
+}
+
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+

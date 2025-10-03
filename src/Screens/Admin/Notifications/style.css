@@ -1,0 +1,190 @@
+.notification-filter .form-select {
+  min-width: 80px;
+  padding: 10px 45px 10px 15px;
+  height: 40px;
+  color: #666;
+  box-shadow: none;
+  border-radius: 7px;
+  font-size: 15px;
+  border: var(--table-border-width, 1px) solid var(--table-border-color, var(--bs-border-color, #dee2e6));
+}
+
+.notification-filter .btn-link {
+  font-family: Calibri, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.card-notifications {
+  background: #F8F8F8;
+  padding: 1.5rem 1.7rem;
+  margin-bottom: 1rem;
+  /* box-shadow: 0px 6px 11px rgb(0 0 0 / 4%); */
+  border-radius: 0.5rem;
+  border: 1px solid #A1A3B0;
+}
+
+.card-notifications.unread {
+  border-radius: 7px;
+  background: #F8F8F8;
+  /* box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.1); */
+  border: 1px solid rgba(90, 178, 255, 0.20);
+}
+
+.singleNoti.unread {
+  border-radius: 10px;
+  background-color: #F8F8F8;
+  /* border: 1px solid var(--primaryColor); */
+  padding-block: 0.75rem;
+}
+
+.unread .notificationText {
+  color: #333;
+}
+
+/* .card-notifications .noti-icon {
+  flex-shrink: 0;
+  background: var(--primaryColor);
+  padding: 0px 0px 0px 0px;
+  border-radius: 10px;
+  width: 55px;
+  height: 55px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #fff;
+}
+
+.card-notifications .noti-icon img {
+  max-width: 100%;
+  width: 70px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+} */
+
+.card-notifications .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.card-notifications .card-text {
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-size: 18px;
+  color: #666666;
+}
+
+.card-notifications .meta {
+  display: flex;
+  gap: 15px;
+}
+
+.card-notifications .time-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  font-size: 15px;
+  font-weight: 400;
+  color: #333333;
+  padding-right: 15px;
+}
+
+.card-notifications .time-meta svg {
+  color: var(--bs-primary);
+}
+
+.card-notifications .time-meta:not(:last-child):after {
+  content: "";
+  height: 12px;
+  width: 1px;
+  background: var(--bs-border-color);
+  top: 5px;
+  right: 0;
+  position: absolute;
+}
+
+.card-notifications .btn-link{
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  color: #666666;
+  font-family: Calibri, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 5px 10px;
+}
+.card-notifications .btn-link:hover{
+  color: var(--bs-primary);
+}
+
+
+
+
+
+.unread .dateTime p .svg-inline--fa {
+  color: #1A8C1A;
+}
+
+.buttonMark {
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  font-size: 15px;
+  color: #77838f;
+}
+
+@media screen and (max-width: 575px) {
+  .dateTime {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .dateTimeSeparator {
+    display: none;
+  }
+
+  .notificationText {
+    font-size: 13px;
+  }
+}
+
+
+
+/* .notification-card {
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--body-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.3s ease-out;
+  font-size: 16px;
+}
+.notification-card.unread {
+  background-color: color-mix(
+    in srgb,
+    var(--secondary-color) 15%,
+    transparent 85%
+  );
+}
+.notification-status-button {
+  flex-shrink: 0;
+}
+.date-and-time p {
+  display: inline;
+  color: var(--detail-label-color);
+}
+@media screen and (max-width: 767px) {
+  .notification-card {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .notification-card {
+    font-size: 13px;
+  }
+} */

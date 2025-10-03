@@ -1,0 +1,97 @@
+/***** Buttons*****/
+
+.btn {
+  color: var(--bs-white);
+  padding: 15px 40px;
+  font-size: 17px;
+  font-weight: 400;
+  transition: all 0.6s ease 0s;
+  text-transform: capitalize;
+  line-height: normal;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid transparent;
+  font-family: 'Georgia', sans-serif;
+  letter-spacing: 1px;
+
+  &.disabled,
+  &:disabled,
+  fieldset:disabled & {
+    color: #fff;
+    pointer-events: none;
+    background-color: #dedede;
+    border-color: #dedede;
+  }
+}
+
+.btn-primary {
+  color: #000;
+  background: #fdd91f;
+  transition: background-position 0.5s ease;
+  border-radius: 10px;
+
+  &:hover,
+  &:focus,
+  &:active:not(:disabled):not(.disabled) {
+    color: var(--bs-white);
+    --x: 100%;
+
+    box-shadow: none;
+    outline: none;
+    border-color: transparent;
+  }
+}
+
+.btn-link {
+  color: #FDD91F !important;
+}
+
+/****** Button Primary ******/
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #000;
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+  background-color: #FDD91F;
+}
+/****** Button Outline Primary ******/
+.btn-outline-primary {
+  border: 1px solid var(--bs-primary);
+  color: var(--bs-primary);
+  background: transparent;
+}
+
+/****** Button Secondary ******/
+.btn-secondary {
+  color: var(--bs-white);
+  background: var(--secBtn);
+}
+
+.btn-secondary:hover,
+.btn-secondary:not(:disabled):not(.disabled):active {
+  color: var(--bs-white);
+  background-color: var(--primBtn);
+  outline: none;
+  border-color: var(--primBtn);
+}
+
+@media screen and (max-width: 991px) {
+  .btn {
+    padding: 15px 25px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .btn {
+    font-size: 14px;
+    height: unset;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .btn {
+    min-width: unset;
+  }
+}
