@@ -1,18 +1,12 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import Dashboard from '../../assets/images/sidebar/dashboard.svg?react';
-import SubscriptionLogs from '../../assets/images/sidebar/subscriptionLog.svg?react';
-import SubscriptionManagement from '../../assets/images/sidebar/subscriptionManagement.svg?react';
-import Support from '../../assets/images/sidebar/support.svg?react';
-import SupportLogs from '../../assets/images/sidebar/supportLog.svg?react';
 import User from '../../assets/images/sidebar/user.svg?react';
 
 import React, { useEffect, useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
-import { HiLockOpen } from 'react-icons/hi2';
+import { Nav } from 'react-bootstrap';
 import useUserStore from '../../Stores/UserStore';
 import { isNullOrEmpty } from '../../Utils/Utils';
 import Styles from './Sidebar.module.css';
-import { Nav } from 'react-bootstrap';
 import './styles.css';
 
 const menuItems = [
@@ -32,9 +26,9 @@ const menuItems = [
   },
   {
     roles: ['admin'],
-    id: 'head-coach-management',
-    label: 'Head Coach Management',
-    link: '/admin/head-coach-management',
+    id: 'loader-Rigger-management',
+    label: 'Loader Rigger Management',
+    link: '/admin/loader-Rigger-management',
     icon: User,
   },
   {

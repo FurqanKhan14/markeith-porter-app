@@ -108,26 +108,26 @@ const HeadCoachView = ({
 
 
 
-    // Initialize selectValue when userManagement changes
-    useEffect(() => {
-      if (headCoach) {
-        const isActive = headCoach.status === 1;
-        const initialValues = {
-          [headCoach.id]: isActive ? '1' : '0',
-        };
-        setSelectValue(initialValues);
-    
-        // console.log(`Status: ${isActive ? 'Active' : 'Inactive'}`);
-        // console.log('Initial Values:', initialValues);
-      }
-    }, [headCoach]);
-  
+  // Initialize selectValue when userManagement changes
+  useEffect(() => {
+    if (headCoach) {
+      const isActive = headCoach.status === 1;
+      const initialValues = {
+        [headCoach.id]: isActive ? '1' : '0',
+      };
+      setSelectValue(initialValues);
+
+      // console.log(`Status: ${isActive ? 'Active' : 'Inactive'}`);
+      // console.log('Initial Values:', initialValues);
+    }
+  }, [headCoach]);
+
 
   //UPDATE STATUS
-    const handleStatusChange = (itemId, event) => {
+  const handleStatusChange = (itemId, event) => {
     const newStatus = event.target.value;
     const statusText = newStatus === '1' ? 'Active' : 'Inactive';
-    
+
     // Update local state immediately for better UX
     setSelectValue(prev => ({
       ...prev,
@@ -137,7 +137,7 @@ const HeadCoachView = ({
     // Show confirmation modal using showModal
     const actionText = statusText === 'Active' ? 'Activate' : 'Inactivate';
     // console.log('Calling mutation with:', { id: itemId, status: Number(newStatus) });
-    
+
     showModal(
       ``,
       `Are you sure you want to ${actionText} this user?`,
@@ -148,8 +148,8 @@ const HeadCoachView = ({
       },
       'info'
     );
-    };
-    
+  };
+
   // Mutation for updating status
   const { mutate: updateStatusMutation, isPending: isStatusUpdating } =
     useMutation({
@@ -284,7 +284,7 @@ const HeadCoachView = ({
           </Col>
         </Row>
       </div>
-      
+
       <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-4">
         <Row>
           <Col xs={12}>
@@ -302,9 +302,9 @@ const HeadCoachView = ({
               pagination={pagination}
               isLoading={assistantCoachLoading}
               centerLastHeader={true}
-              // dateFilters={[
-              //   { title: 'Registration Date', from: 'from', to: 'to' },
-              // ]}
+            // dateFilters={[
+            //   { title: 'Registration Date', from: 'from', to: 'to' },
+            // ]}
             >
               {(assistantCoach?.length || assistantCoachError) && (
                 <tbody>
@@ -366,9 +366,9 @@ const HeadCoachView = ({
               pagination={pagination}
               isLoading={totalEventsLoading}
               centerLastHeader={true}
-              // dateFilters={[
-              //   { title: 'Registration Date', from: 'from', to: 'to' },
-              // ]}
+            // dateFilters={[
+            //   { title: 'Registration Date', from: 'from', to: 'to' },
+            // ]}
             >
               {(totalEvents?.length || totalEventsError) && (
                 <tbody>
@@ -412,7 +412,7 @@ const HeadCoachView = ({
             </CustomTable>
           </Col>
         </Row>
-      </div>   
+      </div>
 
       <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-4">
         <Row>
@@ -430,9 +430,9 @@ const HeadCoachView = ({
               headers={subscriptionCoachHeaders}
               pagination={pagination}
               isLoading={totalEventsLoading}
-              // dateFilters={[
-              //   { title: 'Registration Date', from: 'from', to: 'to' },
-              // ]}
+            // dateFilters={[
+            //   { title: 'Registration Date', from: 'from', to: 'to' },
+            // ]}
             >
               {(subscription?.length || subscriptionError) && (
                 <tbody>
@@ -465,7 +465,7 @@ const HeadCoachView = ({
             </CustomTable>
           </Col>
         </Row>
-      </div>  
+      </div>
 
       <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-3">
         <Row>
@@ -484,9 +484,9 @@ const HeadCoachView = ({
               pagination={pagination}
               isLoading={rosterLoading}
               centerLastHeader={true}
-              // dateFilters={[
-              //   { title: 'Registration Date', from: 'from', to: 'to' },
-              // ]}
+            // dateFilters={[
+            //   { title: 'Registration Date', from: 'from', to: 'to' },
+            // ]}
             >
               {(roster?.length || rosterError) && (
                 <tbody>
@@ -529,7 +529,7 @@ const HeadCoachView = ({
             </CustomTable>
           </Col>
         </Row>
-      </div>   
+      </div>
     </section>
   );
 };

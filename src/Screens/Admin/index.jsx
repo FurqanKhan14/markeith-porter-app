@@ -9,12 +9,14 @@ import Notifications from './Notifications';
 import QueryManagement from './QueryManagement';
 import QueryDetails from './QueryManagement/QueryDetails';
 import PromoCodeManagement from './PromoCodeManagement';
-import HeadCoachManagement from './HeadCoachManagement/index';
-import HeadCoachView from './HeadCoachManagement/HeadCoachView';
-import AssistantCoachView from './HeadCoachManagement/AssistantCoachView';
-import StudentDetailsView from './HeadCoachManagement/StudentDetailsView';
-import EventView from './HeadCoachManagement/EventView';
-import EventEdit from './HeadCoachManagement/EventEdit';
+import HeadCoachManagement from './LoaderRiggerManagement'
+import HeadCoachView from './LoaderRiggerManagement/HeadCoachView';
+
+// import HeadCoachManagement from './Loader /RiggerManagement'
+import AssistantCoachView from './LoaderRiggerManagement/AssistantCoachView';
+import StudentDetailsView from './LoaderRiggerManagement/StudentDetailsView';
+import EventView from './LoaderRiggerManagement/EventView';
+import EventEdit from './LoaderRiggerManagement/EventEdit';
 import SubscriptionLogs from './SubscriptionLogs';
 import SubscriptionPlan from './SubscriptionLogs/SubscriptionPlan';
 import SubscriptionDetails from './SubscriptionLogs/SubscriptionDetails';
@@ -25,12 +27,12 @@ const AdminRoutes = () => {
   return (
     <Routes>
       <Route path="dashboard" element={<Dashboard />} />
-      <Route path="head-coach-management" element={<HeadCoachManagement />} />
-      <Route path="head-coach-management/:id" element={<HeadCoachView />} />
-      <Route path="head-coach-management/:id/assistant-coach-management/:id" element={<AssistantCoachView />} />
-      <Route path="head-coach-management/:id/student-details/:id" element={<StudentDetailsView />} />
-      <Route path="head-coach-management/:id/event-details/:id" element={<EventView />} />
-      <Route path="head-coach-management/:id/event-details/:id/edit" element={<EventEdit />} />
+      <Route path="loader-Rigger-management" element={<HeadCoachManagement />} />
+      <Route path="loader-Rigger-management/:id" element={<HeadCoachView />} />
+      <Route path="loader-Rigger-management/:id/assistant-coach-management/:id" element={<AssistantCoachView />} />
+      <Route path="loader-Rigger-management/:id/student-details/:id" element={<StudentDetailsView />} />
+      <Route path="loader-Rigger-management/:id/event-details/:id" element={<EventView />} />
+      <Route path="loader-Rigger-management/:id/event-details/:id/edit" element={<EventEdit />} />
       <Route path="query-management" element={<QueryManagement />} />
       <Route path="query-management/:id" element={<QueryDetails />} />
       <Route path="promo-code-Management" element={<PromoCodeManagement />} />

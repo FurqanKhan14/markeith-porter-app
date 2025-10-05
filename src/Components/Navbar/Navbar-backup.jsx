@@ -99,7 +99,7 @@ const Header = ({ sideBarToggle, sideBarClass }) => {
                     <FontAwesomeIcon icon={faBars} />
                   </Button>
                 </li>
-                <li className="nav-item align-self-center flex-grow-1 text-center">
+                <li className="nav-item align-self-center flex-grow-1">
                   <Navbar.Brand as={Link} to="/admin/dashboard">
                     <img
                       src={images.adminLogo}

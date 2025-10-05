@@ -13,7 +13,7 @@ import TextInput from '../../Components/Common/FormElements/TextInput';
 import withModal from '../../HOC/withModal';
 import BackButton from '../../Components/BackButton';
 
-const ChangePassword = ({showModal}) => {
+const ChangePassword = ({ showModal }) => {
   usePageTitle('Change Password');
 
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const ChangePassword = ({showModal}) => {
         <BackButton />
         <h2 className="screen-title mb-0">Change Password</h2>
       </div>
-      
+
       <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-4">
         <Row>
           <Col md={10} lg={8} xl={6} xxl={5}>
@@ -80,6 +80,7 @@ const ChangePassword = ({showModal}) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           error={touched.current_password && errors.current_password}
+                          isWhiteBg={true}
                         />
                       </Col>
                       <Col xs={12} className="mb-3 mb-lg-4 mb-xxl-4">
@@ -94,6 +95,7 @@ const ChangePassword = ({showModal}) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           error={touched.password && errors.password}
+                          isWhiteBg={true}
                         />
                       </Col>
                       <Col xs={12} className="mb-3 mb-lg-4 mb-xxl-4">
@@ -102,7 +104,7 @@ const ChangePassword = ({showModal}) => {
                           type={'password'}
                           required
                           label={'Confirm Password'}
-                          placeholder={'Re-Enter New Password'}
+                          placeholder={'Confirm Password'}
                           value={values.password_confirmation}
                           labelClassName={`label-padding-left`}
                           onChange={handleChange}
@@ -111,16 +113,18 @@ const ChangePassword = ({showModal}) => {
                             touched.password_confirmation &&
                             errors.password_confirmation
                           }
+                          isWhiteBg={true}
                         />
                       </Col>
                     </Row>
-                    
+
                     <Row className="mt-4">
                       <Col xs={12}>
-                        <CustomButton type="submit" text={'Update Password'} 
+                        <CustomButton type="submit" text={'Update'}
                           loadingText="Updating..."
                           loading={updatePasswordMutation.isPending}
-                          className='min-width-220'
+                          className='btn btn-link-profile min-width-220'
+                          variant='unknown'
                         />
                       </Col>
                     </Row>

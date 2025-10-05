@@ -5,7 +5,7 @@
   padding: 15px 40px;
   font-size: 17px;
   font-weight: 400;
-  transition: all 0.6s ease 0s;
+  /* transition: all 0.6s ease 0s; */
   text-transform: capitalize;
   line-height: normal;
   border-radius: 50px;
@@ -43,10 +43,38 @@
   }
 }
 
-.btn-link {
-  color: #FDD91F !important;
+.btn-secondary {
+  background: #fdd91f;
+  transition: background-position 0.5s ease;
+  border-radius: 10px;
+
+  &:hover,
+  &:focus,
+  &:active:not(:disabled):not(.disabled) {
+    color: var(--bs-white);
+    --x: 100%;
+
+    box-shadow: none;
+    outline: none;
+    border-color: transparent;
+  }
 }
 
+.btn-link {
+  color: #FDD91F !important;
+  text-decoration: none !important;
+}
+
+.btn-link-profile {
+  background-color: #1E1E2F;
+  color: #ffff !important;
+  border-radius: 10px !important;
+}
+.btn-link-profile:hover {
+  background-color: #1E1E2F;
+  color: #ffff !important;
+  border-radius: 10px !important;
+}
 /****** Button Primary ******/
 .btn-primary:hover,
 .btn-primary:not(:disabled):not(.disabled):active {
@@ -56,6 +84,7 @@
   border-color: transparent;
   background-color: #FDD91F;
 }
+
 /****** Button Outline Primary ******/
 .btn-outline-primary {
   border: 1px solid var(--bs-primary);
@@ -83,6 +112,7 @@
     font-size: 15px;
   }
 }
+
 @media screen and (max-width: 575px) {
   .btn {
     font-size: 14px;

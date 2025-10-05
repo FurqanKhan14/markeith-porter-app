@@ -13,6 +13,10 @@ label,
   padding-left: 20px;
 } */
 
+.label-white{
+  color:#000 !important;
+}
+
 /************* Input Components End ***********/
 
 .form-control,

@@ -78,7 +78,7 @@ const EditProfile = ({showModal}) => {
 
   const handleEditProfileSubmit = (values) => {
     console.log('values', values);
-    showModal('Profile Updated Successfully', 'Profile has been updated successfully.', () => {
+    showModal('Successful', 'Profile has been updated successfully.', () => {
       navigate('/admin/profile');
     }, 'success');
     
@@ -164,6 +164,7 @@ const EditProfile = ({showModal}) => {
                           onBlur={handleBlur}
                           error={touched.first_name && errors.first_name}
                           labelClassName={`label-padding-left`}
+                          isWhiteBg={true}
                         />
                       </Col>
                       <Col xs={12} className="mb-3 mb-lg-4 mb-xxl-4">
@@ -178,14 +179,15 @@ const EditProfile = ({showModal}) => {
                           onBlur={handleBlur}
                           error={touched.last_name && errors.last_name}
                           labelClassName={`label-padding-left`}
+                          isWhiteBg={true}
                         />
                       </Col>
                       <Col xs={12} className="mb-3 mb-lg-4 mb-xxl-4">
                         <TextInput
                           name={'email'}
                           type={'email'}
-                          required
-                          label={'Email'}
+                          // required
+                          label={'Email Address'}
                           placeholder={'Enter Email'}
                           value={values.email}
                           onChange={handleChange}
@@ -193,6 +195,7 @@ const EditProfile = ({showModal}) => {
                           error={touched.email && errors.email}
                           labelClassName={`label-padding-left`}
                           readOnly
+                          isWhiteBg={true}
                         />
                       </Col>
                     </Row>
@@ -204,7 +207,8 @@ const EditProfile = ({showModal}) => {
                           text={'Update'}
                           loading={isPending}
                           loadingText="Updating..."
-                          className='min-width-220'
+                          className='btn btn-link-profile min-width-220'
+                          variant='unknown'
                         />
                       </Col>
                     </Row>

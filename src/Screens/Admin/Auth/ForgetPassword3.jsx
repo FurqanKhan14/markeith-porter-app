@@ -47,17 +47,17 @@ const ForgetPassword3 = ({ showModal, closeModal, ...props }) => {
   const handleSubmit = (values) => {
     // Optionally validate values here
     showToast('Password was reset', 'success');
-    showModal('', 'Your password has been Updated', null, 'success', () =>
+    showModal('Successful', 'Your password has been reset. Please login to continue.', null, 'success', () =>
       navigate('/admin/login')
     );
-    console.log(values, 'values on Submit');
+    // console.log(values, 'values on Submit');
   };
 
   return (
     <AuthLayout
-      authTitle="Password Recovery"
+      authTitle="Forgot Password"
       authMain
-      authParagraph="Set a New Password for Your Account"
+      authParagraph="Set New Password for your Account"
       backOption={true}
       adminAuth={true}
     >

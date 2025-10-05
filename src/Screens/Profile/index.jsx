@@ -15,7 +15,7 @@ const AdminProfile = () => {
     <>
       <section className="profile-management">
         <div className="admin-content-header mb-4 d-flex gap-2">
-          <h2 className="screen-title mb-0">Profile</h2>
+          <h2 className="screen-title mb-0">My Profile</h2>
         </div>
         <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-4">
           <Row>
@@ -65,12 +65,17 @@ const AdminProfile = () => {
                       <Link
                         to="/admin/profile/edit-profile"
                         className="btn btn-primary min-width-220"
+                        style={{
+                          backgroundColor:"transparent",
+                          color:"#1E1E2F",
+                          border:"1px solid #1E1E2F"
+                        }}
                       >
                         Edit Profile
                       </Link>
                       <Link
                         to="/admin/profile/change-password"
-                        className="btn btn-link px-0"
+                        className="btn btn-link-profile"
                       >
                         Change Password
                       </Link>

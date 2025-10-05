@@ -23,6 +23,7 @@ const TextInput = ({
   inputIcon,
   iconPosition = 'left',
   inline = false,
+isWhiteBg = false,
   ...rest
 }) => {
   const [passwordShow, setPasswordShow] = React.useState(true);
@@ -62,7 +63,7 @@ const TextInput = ({
   };
 
   const labelText = label && (
-    <label className={`form-label ${labelClassName || ''}`} htmlFor={id || name}>
+    <label className={`form-label ${labelClassName || ''} ${isWhiteBg ? "label-white" : ""}`} htmlFor={id || name}>
       {label}
       {required && <span className="text-danger">*</span>}
     </label>

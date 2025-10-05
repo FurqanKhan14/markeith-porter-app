@@ -77,10 +77,11 @@ const ForgetPassword2 = () => {
       verificationCode: values.verificationCode,
     };
     setFormData(updatedFormData);
-    submitVerificationCode.mutate({
-      email: state.email,
-      code: values.verificationCode,
-    });
+          navigate('/admin/forget-password3', { state: updatedFormData });
+    // submitVerificationCode.mutate({
+    //   email: state.email,
+    //   code: values.verificationCode,
+    // });
   };
 
   return (

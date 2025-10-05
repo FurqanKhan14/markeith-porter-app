@@ -95,33 +95,33 @@ const CustomModal = ({
           </div>
         ) : (
           <>
-          
+            {title && (
+              <h3 className="modal-title">
+                {title}
+              </h3>
+            )}
             <div className="modal-icon-wrapper">
               {renderImage(variant)}
             </div>
-            {title && (
-            <h3 className="modal-title">
-              {title}
-            </h3>
-            )}
+
             {description && (
               <p className="modal-text">
                 {description}
               </p>
             )}
             {note && <p className="modal-note">{note}</p>}
-            </>
+          </>
         )}
       </Modal.Body>
       <Modal.Footer className="border-0 pt-0 pb-4 text-center d-flex justify-content-center flex-column flex-sm-row align-items-stretch gap-2">
         {variant === 'success' ? (
-          
-            <CustomButton
-              type="button"
-              className="modal-btn"
-              text={btntext || 'Ok'}
-              onClick={action ? action : close}
-            />
+
+          <CustomButton
+            type="button"
+            className="modal-btn"
+            text={btntext || 'Ok'}
+            onClick={action ? action : close}
+          />
         ) : (
           <>
             {variant === 'error' ? (

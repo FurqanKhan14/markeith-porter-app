@@ -22,7 +22,15 @@ const iconMap = {
   faShoppingCart,
   faEye
 };
+// item {
+//   iconName, 
+//   image,
+//   text, 
+//   number,
+//   increase, 
+// sinceWeek
 
+// }
 const StatsCard = ({ item }) => {
   // Function to get the icon
   const getIcon = (iconName) => {

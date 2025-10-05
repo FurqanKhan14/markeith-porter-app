@@ -2,12 +2,11 @@ export const attachmentsTableHeaders = ['S.No', 'File Name', 'Action'];
 
 export const headCoachHeaders = [
   'S. No.',
-  'Coach Name',
-  'School',
+  'First Name',
+  'Last Name',
   'Email Address',
-  'Status',
-  'Subscription Title',
   'Registration Date',
+  'Status',
   'Action',
 ];
 export const assistantCoachHeaders = [

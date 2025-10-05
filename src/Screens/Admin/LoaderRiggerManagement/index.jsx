@@ -1,12 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import {
-  HiOutlineCheckCircle,
-  HiOutlineEye,
-  HiOutlineXCircle,
+  HiOutlineEye
 } from 'react-icons/hi2';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import CustomSelect from '../../../Components/Common/FormElements/SelectInput';
 import CustomTable from '../../../Components/CustomTable/CustomTable';
 import TableActionDropDown from '../../../Components/TableActionDropDown/TableActionDropDown';
 import { showToast } from '../../../Components/Toast/Toast';
@@ -15,15 +14,12 @@ import withModal from '../../../HOC/withModal';
 import { usePageTitle } from '../../../Hooks/usePageTitle';
 import { useFetchTableData } from '../../../Hooks/useTable';
 import {
-  getAssistantCoachListing,
   getHeadCoachListing,
-  updateHeadCoachStatus,
+  updateHeadCoachStatus
 } from '../../../Services/Admin/HeadCoachManagement';
-import { statusClassMap } from '../../../Utils/Constants/SelectOptions';
 import { userStatus, userStatusFilters } from '../../../Utils/Constants/TableFilter';
 import { headCoachHeaders } from '../../../Utils/Constants/TableHeaders';
 import { formatDate, fullName, serialNum, showErrorToast } from '../../../Utils/Utils';
-import CustomSelect from '../../../Components/Common/FormElements/SelectInput';
 import './styles.css';
 
 
@@ -35,7 +31,7 @@ const HeadCoachManagement = ({
   pagination,
   updatePagination,
 }) => {
-  usePageTitle('User Management');
+  usePageTitle('Loader/Rigger Management');
   let queryClient = useQueryClient();
   const navigate = useNavigate();
   const [selectValue, setSelectValue] = useState({});
@@ -67,7 +63,7 @@ const HeadCoachManagement = ({
     // Simple logic based on item?.status
     const status = item?.status;
     console.log(`Item ${item.id}: status="${status}"`);
-    
+
     // If status is 1, return true (active), if 0, return false (inactive)
     return status === 1 || status === '1';
   };
@@ -90,7 +86,7 @@ const HeadCoachManagement = ({
   const handleStatusChange = (itemId, event) => {
     const newStatus = event.target.value;
     const statusText = newStatus === '1' ? 'Active' : 'Inactive';
-    
+
     // Update local state immediately for better UX
     setSelectValue(prev => ({
       ...prev,
@@ -100,7 +96,7 @@ const HeadCoachManagement = ({
     // Show confirmation modal using showModal
     const actionText = statusText === 'Active' ? 'activate' : 'deactivate';
     console.log('Showing modal for status change:', { itemId, newStatus, statusText });
-    
+
     showModal(
       ``,
       `Are you sure you want to ${actionText} this user?`,
@@ -151,8 +147,11 @@ const HeadCoachManagement = ({
   return (
     <>
       <section className="head-coach-management">
-        <div className="admin-content-header mb-4 d-flex gap-2">
-          <h2 className="screen-title mb-0">Head Coach Management</h2>
+        <div className="admin-content-header mb-4 d-flex justify-content-between align-items-center gap-2">
+          <h2 className="screen-title mb-0">Loader/Rigger Management</h2>
+          <Link className="btn btn-link-profile text-capitalize" to="/admin/subscription-logs/subscription-plan">
+            Add new loader/Rigger
+          </Link>
         </div>
         <div className="admin-content-body rounded-20 p-4 p-lg-4 p-xxl-4 mb-4">
           <Row>
@@ -192,9 +191,10 @@ const HeadCoachManagement = ({
                             (filters?.page - 1) * filters?.per_page + index + 1
                           )}
                         </td>
-                        <td>{fullName(item)}</td>
-                        <td>{item?.school}</td>
+                        <td>{item?.first_name || '-'}</td>
+                        <td>{item?.last_name || '-'}</td>
                         <td>{item?.email}</td>
+                        <td>{formatDate(item?.created_at)}</td>
                         <td>
                           <CustomSelect
                             options={userStatus}
@@ -203,8 +203,6 @@ const HeadCoachManagement = ({
                             onChange={(event) => handleStatusChange(item.id, event)}
                           />
                         </td>
-                        <td>{item?.subscription_title}</td>
-                        <td>{formatDate(item?.created_at)}</td>
                         <td>
                           <TableActionDropDown
                             actions={[

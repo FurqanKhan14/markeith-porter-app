@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import React, { useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import { useNavigate } from 'react-router-dom';
 import User from '../../../assets/images/dash-user.svg?react';
 import Receivable from '../../../assets/images/receivable.svg?react';
@@ -30,6 +30,7 @@ import useThemeStore from '../../../Stores/ThemeStore';
 import { themeDictionary } from '../../../Utils/Constants/ColorConstants';
 import { dateRangeSelectOptions } from '../../../Utils/Constants/SelectOptions';
 import { Col, Row } from 'react-bootstrap';
+import { FaDollarSign } from 'react-icons/fa6';
 
 ChartJS.register(
   ArcElement,
@@ -41,8 +42,36 @@ ChartJS.register(
   BarElement,
   PointElement,
   LineElement,
-  Filler
+  Filler,
+
 );
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Line Chart',
+    },
+  },
+};
+
+export const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: [200, -300, 150, 400, -200, 100, 350],
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    }
+  ],
+};
 
 const Dashboard = ({ showModal }) => {
   usePageTitle('Dashboard');
@@ -118,7 +147,7 @@ const Dashboard = ({ showModal }) => {
   // Reusable Chart Component
   const renderChart = (title, chartData, chartType, handleChange) => {
     if (!chartData) return null;
-    
+
     return (
       <div className="d-card chart-padding mt-3">
         <div className="d-flex justify-content-between mb-3">
@@ -137,25 +166,34 @@ const Dashboard = ({ showModal }) => {
           </div>
         </div>
         <div style={{ height: 600 }} className="dashboardChart">
-          <Bar
-            data={chartData}
-            options={chartData.options}
-          />
+          <Line options={options} data={data} />
         </div>
       </div>
     );
   };
-
   return (
     <div>
       <h2 className="screen-title d-inline-block">Dashboard</h2>
-      
+
       {/* Stats Cards using data from getDashboardData service */}
       <Row className="mb-4">
-        {cardData?.map((card) => (
-          <Col key={card.id} xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
-            <StatsCard item={card} />
-          </Col>
+        {cardData?.map((card, index) => (
+          <React.Fragment key={card.id}>
+            <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
+              <StatsCard item={card} />
+            </Col>
+
+            {index === cardData.length - 1 && (
+              <>
+                <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
+                  <StatsCard item={{ id: "extra1", iconName: FaDollarSign, text: "Extra card", number: 1001, increase: 1, image: "faDollarSign", sinceWeek: "10" }} />
+                </Col>
+                <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
+                  <StatsCard item={{ id: "extra1", iconName: FaDollarSign, text: "Extra card 2", number: 1001, increase: 1, image: "faDollarSign", sinceWeek: "10" }} />
+                </Col>
+              </>
+            )}
+          </React.Fragment>
         ))}
       </Row>
 
@@ -163,6 +201,12 @@ const Dashboard = ({ showModal }) => {
         'Total Users',
         userChartData,
         'totalUsers',
+        handleDateRangeSelect
+      )}
+      {renderChart(
+        'Total Earnings',
+        earningChartData,
+        'totalEarning',
         handleDateRangeSelect
       )}
       {renderChart(
