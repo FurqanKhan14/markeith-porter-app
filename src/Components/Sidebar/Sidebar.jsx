@@ -1,7 +1,8 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import Dashboard from '../../assets/images/sidebar/dashboard.svg?react';
 import User from '../../assets/images/sidebar/user.svg?react';
-
+import ShipyardUserManagement from '../../assets/images/sidebar/shipyard-user-management.svg?react';
+import SubAdminManagement from '../../assets/images/sidebar/sub-admin-management.svg?react';
 import React, { useEffect, useState } from 'react';
 import { Nav } from 'react-bootstrap';
 import useUserStore from '../../Stores/UserStore';
@@ -33,10 +34,24 @@ const menuItems = [
   },
   {
     roles: ['admin'],
-    id: 'subscription-mgmt',
-    label: 'Subscription Logs',
-    link: '/admin/subscription-logs',
+    id: 'private-company-management',
+    label: 'Private Company Management',
+    link: '/admin/private-company-management',
     icon: User,
+  },
+  {
+    roles: ['admin'],
+    id: 'shipyard-user-management',
+    label: 'Shipyard User Management',
+    link: '/admin/shipyard-user-management',
+    icon: ShipyardUserManagement,
+  },
+  {
+    roles: ['admin'],
+    id: 'sub-admin-management',
+    label: 'Sub-Admin Management',
+    link: '/admin/sub-admin-management',
+    icon: SubAdminManagement,
   },
   {
     roles: ['admin'],
@@ -102,7 +117,7 @@ const Sidebar = ({ sideBarClass, disable = false }) => {
           as="ul"
           className="side-nav d-block"
         >
-          {menuItems.map((item,) =>
+          {menuItems.map((item) =>
             item.roles.includes(role) ? (
               <React.Fragment key={item.id}>
                 <Nav.Item as="li">

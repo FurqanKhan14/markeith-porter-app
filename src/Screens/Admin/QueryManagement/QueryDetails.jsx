@@ -10,7 +10,7 @@ import CustomTable from '../../../Components/CustomTable/CustomTable';
 import StatusChip from '../../../Components/StatusChip/StatusChip';
 import { showToast } from '../../../Components/Toast/Toast';
 import { usePageTitle } from '../../../Hooks/usePageTitle';
-import { viewQueryManagement} from '../../../Services/Admin/QueryManagement';
+import { viewQueryManagement } from '../../../Services/Admin/QueryManagement';
 import { statusClassMap } from '../../../Utils/Constants/SelectOptions';
 import { formatDate } from '../../../Utils/Utils';
 import './styles.css';
@@ -53,8 +53,6 @@ const QueryDetails = ({ showModal, closeModal, updatePagination }) => {
     refetchOnWindowFocus: false,
     retry: 1,
   });
-
-
 
   if (isLoading) {
     return (
@@ -135,8 +133,6 @@ const QueryDetails = ({ showModal, closeModal, updatePagination }) => {
         </Row>
       </div>
     </section>
-
-    
   );
 };
 

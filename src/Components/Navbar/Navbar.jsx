@@ -1,17 +1,23 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import React, { useState } from 'react';
 import {
-  // Navbar as BootstrapNavbar,
-  Navbar,
+  faAngleDown,
+  faBars,
+  faEllipsisV,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
+import {
   Button,
   Dropdown,
   ListGroup,
+  // Navbar as BootstrapNavbar,
+  Navbar,
 } from 'react-bootstrap';
 import { GoBell } from 'react-icons/go';
-import { HiMenu, HiOutlineColorSwatch } from 'react-icons/hi';
 import { LuLogOut } from 'react-icons/lu';
 import { RiUserSettingsLine } from 'react-icons/ri';
 import { Link, useNavigate } from 'react-router-dom';
+import { images } from '../../assets';
 import { useLogout } from '../../Hooks/useLogout';
 import {
   editNotification,
@@ -19,19 +25,9 @@ import {
 } from '../../Services/Admin/Notifications';
 import useUserStore from '../../Stores/UserStore';
 import { calculateTimePassed } from '../../Utils/Utils';
-import CustomButton from '../Common/CustomButton';
 import CustomModal from '../CustomModal';
 import TableActionDropDown from '../TableActionDropDown/TableActionDropDown';
 import './navbar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBars,
-  faChevronDown,
-  faEllipsisV,
-  faRightFromBracket,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
-import { images } from '../../assets';
 
 const Header = ({ sideBarToggle, sideBarClass }) => {
   let navigate = useNavigate();
@@ -84,7 +80,7 @@ const Header = ({ sideBarToggle, sideBarClass }) => {
 
   return (
     <>
-      <header id="header" className='fixed-top'>
+      <header id="header" className="fixed-top">
         <Navbar className="header-navbar" expand="md" variant="light">
           <div className="navbar-wrapper w-100 d-md-flex">
             <div className="navbar-header d-flex">
@@ -120,11 +116,19 @@ const Header = ({ sideBarToggle, sideBarClass }) => {
             </div>
 
             <div className="navbar-container flex-grow-1 align-self-center">
-              <Navbar.Collapse id="navbar-mobile" className='navbar-mobile'>
+              <Navbar.Collapse id="navbar-mobile" className="navbar-mobile">
                 <ListGroup
                   bsPrefix="nav navbar-nav ms-auto justify-content-end d-flex flex-row"
                   as="ul"
                 >
+                  <ListGroup.Item
+                    as="li"
+                    className="nav-item d-flex align-self-center me-2"
+                  >
+                    {/* <Link to="/admin/chat" className="text-decoration-none"> */}
+                    <images.ChatIcon />
+                    {/* </Link> */}
+                  </ListGroup.Item>
                   <ListGroup.Item
                     as="li"
                     className="nav-item d-flex align-self-center me-4"
@@ -225,10 +229,14 @@ const Header = ({ sideBarToggle, sideBarClass }) => {
                     >
                       <div className="user-avatar">
                         <div className="user-image">
-                          <img src={user?.["photo-path"] || images.placeholder} alt="avatar" />
+                          <img
+                            src={user?.['photo-path'] || images.placeholder}
+                            alt="avatar"
+                          />
                         </div>
                         {/* <h6>{getInitials(user?.user_name || "Hello")}</h6> */}
-                        <h6>Hello!</h6>
+                        {/* <h6>Hello!</h6> */}
+                        <FontAwesomeIcon icon={faAngleDown} />
                       </div>
                     </TableActionDropDown>
 

@@ -1,6 +1,8 @@
-import axiosInstance from '../../Config/axiosConfig';
-import { dashboardChartDataOne, statsData, userChartDataFormatted, earningChartDataFormatted } from '../../Config/data';
-import { buildFormData } from '../../Utils/Utils';
+import {
+  earningChartDataFormatted,
+  statsData,
+  userChartDataFormatted,
+} from '../../Config/data';
 
 // GET CARD
 export const getDashboardData = async (params) => {
@@ -25,7 +27,7 @@ export const getUserChart = async (params) => {
   try {
     // Return mock chart data for users in cashBalanceData format
     return userChartDataFormatted;
-    
+
     // If you want to use real API, uncomment the following:
     // const { data } = await axiosInstance.get(`/admin-api/charts/user?role=user&type=${params}`);
     // return data.detail;
@@ -41,7 +43,7 @@ export const getEarningChart = async (params) => {
   try {
     // Return mock chart data for earnings in cashBalanceData format
     return earningChartDataFormatted;
-    
+
     // If you want to use real API, uncomment the following:
     // const { data } = await axiosInstance.get(`/admin-api/charts/payment?type=${params}`);
     // return data.detail;
@@ -51,4 +53,3 @@ export const getEarningChart = async (params) => {
       : { message: 'Unknown error occurred' };
   }
 };
-

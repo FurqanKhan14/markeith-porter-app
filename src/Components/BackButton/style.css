@@ -11,10 +11,11 @@
   background-color: transparent;
   font-size: 28px;
   font-style: normal;
-  display: inline-flex;
   align-items: center;
   transition: 0.2s ease-out;
   border-radius: 50px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .back-button:hover {

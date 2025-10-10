@@ -1,11 +1,20 @@
 import axiosInstance from '../../Config/axiosConfig.js';
 import { buildFormData } from '../../Utils/Utils.jsx';
-import { assistantCoachData, headCoachManagementData, rosterData, subscriptionCoachData, totalEventsData } from '../../Config/data.jsx';
+import {
+  AccountListing,
+  headCoachManagementData,
+  incidentLogsData,
+  palletLogsData,
+  privateCompanyManagement,
+  rosterData,
+  subscriptionCoachData,
+  totalEventsData,
+} from '../../Config/data.jsx';
 
-// GET HEAD COACH LISTING
-export const getHeadCoachListing = async (params) => {
+// GET LOADER LISTING
+export const getLoaderListing = async (params) => {
   try {
-    const data  = headCoachManagementData;
+    const data = privateCompanyManagement;
     return data.detail; // Assume this returns the listing object
     // const { data } = await axiosInstance.get('/admin-api/head-coaches', {
     //   params,
@@ -17,27 +26,13 @@ export const getHeadCoachListing = async (params) => {
   }
 };
 
-// UPDATE HEAD COACH STATUS
-export const updateHeadCoachStatus = async (id) => {
+export const getAccountListing = async (params) => {
   try {
-    console.log('Updating head coach status for ID:', id);
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    console.log('Head coach status updated successfully');
-    
-    // Return mock success response instead of making actual API call
-    return { 
-      message: 'Head coach status updated successfully', 
-      status: 'success' 
-    };
-    
-    // Commented out actual API call
-    // const response = await axiosInstance.post(`/admin-api/head-coaches/${id}/status`);
-    // const {
-    //   data: { message, status },
-    // } = response;
-    // return { message, status };
-
+    const data = AccountListing;
+    return data.detail; // Assume this returns the listing object
+    // const { data } = await axiosInstance.get('/admin-api/head-coaches', {
+    //   params,
+    // });
   } catch (error) {
     throw error.response
       ? error.response.data
@@ -45,17 +40,17 @@ export const updateHeadCoachStatus = async (id) => {
   }
 };
 
-// VIEW HEAD COACH DETAILS
-export const viewHeadCoach = async (id) => {
+export const getAccountDetails = async (id) => {
   try {
     // console.log('Fetching head coach details for ID:', id);
 
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
-    const data  = headCoachManagementData.detail.data.find(u => u.id === Number(id));
+    const data = AccountListing.detail.data.find(
+      (u) => u.id === Number(id)
+    );
     return data;
 
-    
     // Commented out actual API call
     // const { data } = await axiosInstance.get(`/admin-api/head-coaches/${id}`);
     // return data.detail;
@@ -66,20 +61,20 @@ export const viewHeadCoach = async (id) => {
   }
 };
 
-// GET ASSISTANT COACH LISTING
-export const getAssistantCoachListing = async (params) => {
+// VIEW LOADERS DETAILS
+export const viewLoader = async (id) => {
   try {
-    console.log('Fetching assistant coach listing with params:', params);
+    // console.log('Fetching head coach details for ID:', id);
+
     // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    
-    const data  = assistantCoachData;
-    return data.detail;
-    
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const data = headCoachManagementData.detail.data.find(
+      (u) => u.id === Number(id)
+    );
+    return data;
+
     // Commented out actual API call
-    // const { data } = await axiosInstance.get('/admin-api/assistant-coaches', {
-    //   params,
-    // });
+    // const { data } = await axiosInstance.get(`/admin-api/head-coaches/${id}`);
     // return data.detail;
   } catch (error) {
     throw error.response
@@ -88,27 +83,25 @@ export const getAssistantCoachListing = async (params) => {
   }
 };
 
-// VIEW ASSISTANT COACH DETAILS
-export const viewAssistantCoach = async (id) => {
+// VIEW PALLET LOGS DETAILS
+export const viewPalletLogs = async (id) => {
   try {
-    console.log('Fetching assistant coach details for ID:', id);
-    console.log('Available assistant coaches:', assistantCoachData.detail.data);
-    
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
-    
+
     // Mock data - replace with actual API call
-    const data = assistantCoachData.detail.data.find(u => u.id === Number(id));
-    console.log('Found assistant coach data:', data);
-    
+    // const data = palletLogsData.detail.data.find(u => u.id === Number(id));
+    const data = palletLogsData;
+    // console.log('Found assistant coach data:', data);
+
     if (!data) {
       console.log('Assistant coach not found for ID:', id);
-      console.log('Available IDs:', assistantCoachData.detail.data.map(u => u.id));
-      throw new Error(`Assistant coach with ID ${id} not found`);
+      // console.log('Available IDs:', assistantCoachData.detail.data.map(u => u.id));
+      // throw new Error(`Assistant coach with ID ${id} not found`);
     }
-    
+
     return data;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get(`/admin-api/assistant-coaches/${id}`);
     // return data.detail;
@@ -120,17 +113,137 @@ export const viewAssistantCoach = async (id) => {
   }
 };
 
+export const viewPalletLogsDetails = async (id) => {
+  try {
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Mock data - replace with actual API call
+    const data = palletLogsData.detail.data.find((u) => u.id === Number(id));
+    // console.log('Found assistant coach data:', data);
+
+    if (!data) {
+      console.log('Assistant coach not found for ID:', id);
+      // console.log('Available IDs:', assistantCoachData.detail.data.map(u => u.id));
+      // throw new Error(`Assistant coach with ID ${id} not found`);
+    }
+
+    return data;
+
+    // Commented out actual API call
+    // const { data } = await axiosInstance.get(`/admin-api/assistant-coaches/${id}`);
+    // return data.detail;
+  } catch (error) {
+    console.error('Error in viewAssistantCoach:', error);
+    throw error.response
+      ? error.response.data
+      : { message: error.message || 'Unknown error occurred' };
+  }
+};
+
+// export const viewPalletLogsDetails = async (id) => {
+//   try {
+//     await new Promise((resolve) => setTimeout(resolve, 300));
+//     const found = palletLogsData.detail.data.find((p) => p.id === Number(id));
+//     return found || {};
+//   } catch (error) {
+//     console.error("Error in viewPalletLogsDetails:", error);
+//     throw error;
+//   }
+// };
+
+// VIEW PALLET LOGS DETAILS
+export const incidentLogs = async (id) => {
+  try {
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Mock data - replace with actual API call
+    // const data = palletLogsData.detail.data.find(u => u.id === Number(id));
+    const data = incidentLogsData;
+    console.log('Found assistant coach data:', data);
+
+    if (!data) {
+      console.log('Assistant coach not found for ID:', id);
+      // console.log('Available IDs:', assistantCoachData.detail.data.map(u => u.id));
+      // throw new Error(`Assistant coach with ID ${id} not found`);
+    }
+
+    return data;
+
+    // Commented out actual API call
+    // const { data } = await axiosInstance.get(`/admin-api/assistant-coaches/${id}`);
+    // return data.detail;
+  } catch (error) {
+    console.error('Error in viewAssistantCoach:', error);
+    throw error.response
+      ? error.response.data
+      : { message: error.message || 'Unknown error occurred' };
+  }
+};
+
+export const incidentLogsDetails = async (id) => {
+  try {
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    // Mock data - replace with actual API call
+    // const data = palletLogsData.detail.data.find(u => u.id === Number(id));
+    const data = incidentLogsData.detail.data.find((u) => u.id === Number(id));
+    console.log('Found assistant coach data:', data);
+
+    if (!data) {
+      console.log('Assistant coach not found for ID:', id);
+      // console.log('Available IDs:', assistantCoachData.detail.data.map(u => u.id));
+      // throw new Error(`Assistant coach with ID ${id} not found`);
+    }
+
+    return data;
+
+    // Commented out actual API call
+    // const { data } = await axiosInstance.get(`/admin-api/assistant-coaches/${id}`);
+    // return data.detail;
+  } catch (error) {
+    console.error('Error in viewAssistantCoach:', error);
+    throw error.response
+      ? error.response.data
+      : { message: error.message || 'Unknown error occurred' };
+  }
+};
+
+// GET ASSISTANT COACH LISTING
+// export const getAssistantCoachListing = async (params) => {
+//   try {
+//     console.log('Fetching assistant coach listing with params:', params);
+//     // Simulate API delay
+//     await new Promise((resolve) => setTimeout(resolve, 300));
+
+//     const data  = assistantCoachData;
+//     return data.detail;
+
+//     // Commented out actual API call
+//     // const { data } = await axiosInstance.get('/admin-api/assistant-coaches', {
+//     //   params,
+//     // });
+//     // return data.detail;
+//   } catch (error) {
+//     throw error.response
+//       ? error.response.data
+//       : { message: 'Unknown error occurred' };
+//   }
+// };
+
 // GET TOTAL EVENTS LISTING
 export const getEventsListing = async (params) => {
   try {
     console.log('Fetching total events listing with params:', params);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 300));
-    
+
     // Mock data - replace with actual API call
-    const data  = totalEventsData;
+    const data = totalEventsData;
     return data.detail;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get('/admin-api/events', {
     //   params,
@@ -149,19 +262,22 @@ export const viewEvents = async (id) => {
     console.log('Fetching event details for ID:', id);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
-    
+
     // Mock data - replace with actual API call
-    const data = totalEventsData.detail.data.find(u => u.id === Number(id));
+    const data = totalEventsData.detail.data.find((u) => u.id === Number(id));
     console.log('Found event data:', data);
 
     if (!data) {
       console.log('Event not found for ID:', id);
-      console.log('Available IDs:', totalEventsData.detail.data.map(u => u.id));
+      console.log(
+        'Available IDs:',
+        totalEventsData.detail.data.map((u) => u.id)
+      );
       throw new Error(`Event with ID ${id} not found`);
     }
-    
+
     return data;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get(`/admin-api/events/${id}`);
     // return data.detail;
@@ -177,12 +293,12 @@ export const editEvent = async (id) => {
     console.log('Fetching event for editing, ID:', id);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
-    
+
     // Mock data - replace with actual API call
-    const data = totalEventsData.detail.data.find(u => u.id === Number(id));
+    const data = totalEventsData.detail.data.find((u) => u.id === Number(id));
     console.log('Found event data:', data);
     return data;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get(`/admin-api/events/${id}/edit`);
     // return data.detail;
@@ -200,17 +316,17 @@ export const updateEvent = async ({ id, eventData }) => {
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log('Event updated successfully');
-    
+
     // Return mock success response
-    return { 
-      message: 'Event updated successfully', 
+    return {
+      message: 'Event updated successfully',
       status: 'success',
       data: {
         id: id,
-        ...eventData
-      }
+        ...eventData,
+      },
     };
-    
+
     // Commented out actual API call
     // const response = await axiosInstance.put(`/admin-api/events/${id}`, eventData);
     // return response.data;
@@ -221,20 +337,17 @@ export const updateEvent = async ({ id, eventData }) => {
   }
 };
 
-
-
 // GET SUBSCRIPTION LISTING
 export const getSubscriptionListing = async (params) => {
   try {
     console.log('Fetching subscription listing with params:', params);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 300));
-    
+
     // Mock data - replace with actual API call
-    const data  = subscriptionCoachData;
+    const data = subscriptionCoachData;
     return data.detail;
 
-    
     // Commented out actual API call
     // const { data } = await axiosInstance.get('/admin-api/subscriptions', {
     //   params,
@@ -253,10 +366,10 @@ export const getRosterListing = async (params) => {
     console.log('Fetching roster listing with params:', params);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 300));
-    
-    const data  = rosterData;
+
+    const data = rosterData;
     return data.detail;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get('/admin-api/rosters', {
     //   params,
@@ -275,19 +388,22 @@ export const viewRoster = async (id) => {
     console.log('Fetching roster details for ID:', id);
     // Simulate API delay
     await new Promise((resolve) => setTimeout(resolve, 500));
-    
+
     // Mock data - replace with actual API call
-    const data = rosterData.detail.data.find(u => u.id === Number(id));
+    const data = rosterData.detail.data.find((u) => u.id === Number(id));
     console.log('Found roster data:', data);
-    
+
     if (!data) {
       console.log('Roster not found for ID:', id);
-      console.log('Available IDs:', rosterData.detail.data.map(u => u.id));
+      console.log(
+        'Available IDs:',
+        rosterData.detail.data.map((u) => u.id)
+      );
       throw new Error(`Student with ID ${id} not found`);
     }
-    
+
     return data;
-    
+
     // Commented out actual API call
     // const { data } = await axiosInstance.get(`/admin-api/rosters/${id}`);
     // return data.detail;
@@ -297,9 +413,3 @@ export const viewRoster = async (id) => {
       : { message: 'Unknown error occurred' };
   }
 };
-
-
-
-
-
-

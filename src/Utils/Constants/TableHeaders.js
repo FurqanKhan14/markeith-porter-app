@@ -18,13 +18,21 @@ export const assistantCoachHeaders = [
   'Action',
 ];
 
-export const totalEventsHeaders = [
+export const palletLogsHeaders = [
   'S. No.',
-  'Event Name',
-  'Event Date',
-  'Time',
-  'Location',
-  'Assigned To',
+  'Pallets ID',
+  'Pallet Type',
+  'Date',
+  'Status',
+  'Action',
+];
+export const incidentLogsHeaders = [
+  'S. No.',
+  'Pallets ID',
+  'Incident Reason',
+  'Pallet Type',
+  'Date',
+  'Status',
   'Action',
 ];
 
@@ -55,8 +63,6 @@ export const assistantCoachRosterHeaders = [
   'DOB',
   'Mobile #',
 ];
-
-
 
 export const subscriptionLogsHeaders = [
   'S. No.',
@@ -97,7 +103,26 @@ export const promoCodeHeaders = [
   'Updated Date Date',
   'Action',
 ];
-
-
-
-
+export const privateHeaders = [
+  'S. No.',
+  'Company Name',
+  'Email Address',
+  'Registration Date',
+  'Status',
+  'Action',
+];
+export const palletPrivateLogsHeaders = [
+  'S. No.',
+  'Pallet ID',
+  'Date',
+  'Status',
+  'Action',
+];
+export const subAdminHeaders = [
+  'S. No.',
+  'Name',
+  'Email Address',
+  'Date',
+  'Status',
+  'Action',
+];

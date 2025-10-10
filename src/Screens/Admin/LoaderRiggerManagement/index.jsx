@@ -1,9 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import {
-  HiOutlineEye
-} from 'react-icons/hi2';
+import { HiOutlineEye } from 'react-icons/hi2';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomSelect from '../../../Components/Common/FormElements/SelectInput';
 import CustomTable from '../../../Components/CustomTable/CustomTable';
@@ -13,17 +11,21 @@ import withFilters from '../../../HOC/withFilters ';
 import withModal from '../../../HOC/withModal';
 import { usePageTitle } from '../../../Hooks/usePageTitle';
 import { useFetchTableData } from '../../../Hooks/useTable';
+import { getLoaderListing } from '../../../Services/Admin/LoaderRiggerManagement';
 import {
-  getHeadCoachListing,
-  updateHeadCoachStatus
-} from '../../../Services/Admin/HeadCoachManagement';
-import { userStatus, userStatusFilters } from '../../../Utils/Constants/TableFilter';
+  userStatus,
+  userStatusFilters,
+} from '../../../Utils/Constants/TableFilter';
 import { headCoachHeaders } from '../../../Utils/Constants/TableHeaders';
-import { formatDate, fullName, serialNum, showErrorToast } from '../../../Utils/Utils';
+import {
+  formatDate,
+  fullName,
+  serialNum,
+  showErrorToast,
+} from '../../../Utils/Utils';
 import './styles.css';
 
-
-const HeadCoachManagement = ({
+const LoaderRiggerManagement = ({
   showModal,
   closeModal,
   filters,
@@ -44,10 +46,10 @@ const HeadCoachManagement = ({
     error,
     refetch,
   } = useFetchTableData(
-    'headCoachListing',
+    'loaderListing',
     filters,
     updatePagination,
-    getHeadCoachListing
+    getLoaderListing
   );
   const userManagement = fetchedData?.data ?? [];
 
@@ -56,8 +58,6 @@ const HeadCoachManagement = ({
   if (isError) {
     showErrorToast(error);
   }
-
-
 
   const isStatusActive = (item) => {
     // Simple logic based on item?.status
@@ -76,7 +76,11 @@ const HeadCoachManagement = ({
         // Simple mapping: 1 = active, 0 = inactive
         const isActive = isStatusActive(item);
         initialValues[item.id] = isActive ? '1' : '0';
-        console.log(`Item ${item.id}: status=${item?.status}, isActive=${isActive}, selectValue=${isActive ? '1' : '0'}`);
+        console.log(
+          `Item ${item.id}: status=${
+            item?.status
+          }, isActive=${isActive}, selectValue=${isActive ? '1' : '0'}`
+        );
       });
       setSelectValue(initialValues);
     }
@@ -88,14 +92,18 @@ const HeadCoachManagement = ({
     const statusText = newStatus === '1' ? 'Active' : 'Inactive';
 
     // Update local state immediately for better UX
-    setSelectValue(prev => ({
+    setSelectValue((prev) => ({
       ...prev,
-      [itemId]: newStatus
+      [itemId]: newStatus,
     }));
 
     // Show confirmation modal using showModal
     const actionText = statusText === 'Active' ? 'activate' : 'deactivate';
-    console.log('Showing modal for status change:', { itemId, newStatus, statusText });
+    console.log('Showing modal for status change:', {
+      itemId,
+      newStatus,
+      statusText,
+    });
 
     showModal(
       ``,
@@ -108,48 +116,62 @@ const HeadCoachManagement = ({
       'info'
     );
   };
+  const updateStatusMutation = async (id) => {
+    console.log('Simulating API call to update status for id:', id);
+    showModal(
+      ``,
+      `Successfully updated this user?`,
+      null,
+      'success'
+    );
+  }
 
   // Mutation for updating status
-  const { mutate: updateStatusMutation, isPending: isStatusUpdating } =
-    useMutation({
-      mutationFn: async (id) => await updateHeadCoachStatus(id),
-      onSuccess: (data, variables) => {
-        showToast('Status updated successfully', 'success');
-        // Show success modal after a short delay to avoid conflicts
-        setTimeout(() => {
-          const currentStatus = selectValue[variables] === '1' ? 'Active' : 'Inactive';
-          showModal(
-            ``,
-            `User has been ${currentStatus.toLowerCase()} successfully!`,
-            null,
-            'success'
-          );
-        }, 1000); // Increased delay to ensure confirmation modal is closed
-        queryClient.invalidateQueries(['headCoachListing', filters]);
-      },
-      onError: (error, variables) => {
-        console.error('Error updating status:', error);
-        showToast('Failed to update status', 'error');
-        // Revert the local state change on error
-        if (variables) {
-          setSelectValue(prev => {
-            const newState = { ...prev };
-            const item = userManagement.find(item => item.id === variables);
-            if (item) {
-              newState[item.id] = item.status === 1 || item.status === '1' ? '1' : '0';
-            }
-            return newState;
-          });
-        }
-      },
-    });
+  // const { mutate: updateStatusMutation, isPending: isStatusUpdating } =
+  //   useMutation({
+  //     mutationFn: async (id) => await updateHeadCoachStatus(id),
+  //     onSuccess: (data, variables) => {
+  //       showToast('Status updated successfully', 'success');
+  //       // Show success modal after a short delay to avoid conflicts
+  //       setTimeout(() => {
+  //         const currentStatus =
+  //           selectValue[variables] === '1' ? 'Active' : 'Inactive';
+  //         showModal(
+  //           ``,
+  //           `User has been ${currentStatus.toLowerCase()} successfully!`,
+  //           null,
+  //           'success'
+  //         );
+  //       }, 1000); // Increased delay to ensure confirmation modal is closed
+  //       queryClient.invalidateQueries(['headCoachListing', filters]);
+  //     },
+  //     onError: (error, variables) => {
+  //       console.error('Error updating status:', error);
+  //       showToast('Failed to update status', 'error');
+  //       // Revert the local state change on error
+  //       if (variables) {
+  //         setSelectValue((prev) => {
+  //           const newState = { ...prev };
+  //           const item = userManagement.find((item) => item.id === variables);
+  //           if (item) {
+  //             newState[item.id] =
+  //               item.status === 1 || item.status === '1' ? '1' : '0';
+  //           }
+  //           return newState;
+  //         });
+  //       }
+  //     },
+  //   });
 
   return (
     <>
       <section className="head-coach-management">
         <div className="admin-content-header mb-4 d-flex justify-content-between align-items-center gap-2">
           <h2 className="screen-title mb-0">Loader/Rigger Management</h2>
-          <Link className="btn btn-link-profile text-capitalize" to="/admin/subscription-logs/subscription-plan">
+          <Link
+            className="btn btn-link-profile text-capitalize"
+            to="/admin/loader-Rigger-management/add"
+          >
             Add new loader/Rigger
           </Link>
         </div>
@@ -199,8 +221,14 @@ const HeadCoachManagement = ({
                           <CustomSelect
                             options={userStatus}
                             value={selectValue[item.id]}
-                            className={`status-select ${selectValue[item.id] === '1' ? 'status-active' : 'status-inactive'}`}
-                            onChange={(event) => handleStatusChange(item.id, event)}
+                            className={`status-select ${
+                              selectValue[item.id] === '1'
+                                ? 'status-active'
+                                : 'status-inactive'
+                            }`}
+                            onChange={(event) =>
+                              handleStatusChange(item.id, event)
+                            }
                           />
                         </td>
                         <td>
@@ -228,4 +256,4 @@ const HeadCoachManagement = ({
   );
 };
 
-export default withModal(withFilters(HeadCoachManagement));
+export default withModal(withFilters(LoaderRiggerManagement));

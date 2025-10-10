@@ -52,7 +52,9 @@
   width: 100%;
   background: #42425D;
 }
-
+.admin-login-wrap .authForm .form-label {
+  color: white;
+}
 .authTitle {
   font-weight: 600;
   font-size: 40px;

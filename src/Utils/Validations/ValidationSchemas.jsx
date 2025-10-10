@@ -109,6 +109,117 @@ export const eventEditValidationSchema = Yup.object().shape({
   location: Yup.string().required('Location is required'),
   assigned_to: Yup.string().required('Assigned to is required'),
   equipment: Yup.string().required('Equipment is required'),
-  attendance_required: Yup.boolean().required('Attendance required is required'),
+  attendance_required: Yup.boolean().required(
+    'Attendance required is required'
+  ),
   event_focus: Yup.string().required('Event focus is required'),
+});
+
+export const addLoaderValidation = Yup.object().shape({
+  first_name: Yup.string()
+    .trim()
+    .min(2, 'First name must be at least 2 characters')
+    .max(50, 'First name cannot exceed 50 characters')
+    .required('First name is required'),
+
+  last_name: Yup.string()
+    .trim()
+    .min(2, 'Last name must be at least 2 characters')
+    .max(50, 'Last name cannot exceed 50 characters')
+    .required('Last name is required'),
+
+  email: Yup.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .required('Email address is required'),
+
+  // phone_number: Yup.string()
+  //   .required('Phone number is required')
+  //   .matches(/^[0-9]{6,15}$/, 'Phone number must be between 6 and 15 digits'),
+
+  password: Yup.string()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters long')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(
+      /[@$!%*?&#]/,
+      'Password must contain at least one special character (@, $, !, %, *, ?, & or #)'
+    ),
+
+  password_confirmation: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Confirm password is required'),
+});
+
+export const addSubAdminValidation = Yup.object().shape({
+  name: Yup.string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .max(50, 'Name cannot exceed 50 characters')
+    .required('Name is required'),
+
+  email: Yup.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .required('Email address is required'),
+
+  password: Yup.string()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters long')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number')
+    .matches(
+      /[@$!%*?&#]/,
+      'Password must contain at least one special character (@, $, !, %, *, ?, & or #)'
+    ),
+
+  password_confirmation: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Confirm password is required'),
+
+  privileges: Yup.object()
+    .test(
+      'has-some-privilege',
+      'At least one privilege must be selected',
+      (value) => {
+        if (!value) return false;
+        // Check if at least one privilege (view or action) is true
+        return Object.values(value).some(
+          (mod) => mod.view || mod.action
+        );
+      }
+    )
+    .required('Privileges are required'),
+});
+export const editSubAdminValidation = Yup.object().shape({
+  name: Yup.string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .max(50, 'Name cannot exceed 50 characters')
+    .required('Name is required'),
+
+  email: Yup.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .required('Email address is required'),
+
+
+
+
+  privileges: Yup.object()
+    .test(
+      'has-some-privilege',
+      'At least one privilege must be selected',
+      (value) => {
+        if (!value) return false;
+        // Check if at least one privilege (view or action) is true
+        return Object.values(value).some(
+          (mod) => mod.view || mod.action
+        );
+      }
+    )
+    .required('Privileges are required'),
 });

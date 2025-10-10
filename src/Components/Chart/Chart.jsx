@@ -1,5 +1,5 @@
-import { CChart } from "@coreui/react-chartjs";
-import { useState } from "react";
+import { CChart } from '@coreui/react-chartjs';
+import { useState } from 'react';
 // import { generateNextFiveYears } from "../../Utils/helper";
 // import { Select } from "../Select";
 
@@ -15,7 +15,7 @@ export const Graph = (props) => {
     const heading = props.item.heading;
     setSelectedValue(value);
     props.onSelectChange(value, heading);
-    if (value === "yearly") {
+    if (value === 'yearly') {
       setYearState(true);
     } else {
       setYearState(false);
@@ -32,7 +32,7 @@ export const Graph = (props) => {
     const month = new Date().getMonth() + 1; // getMonth() returns month from 0-11
     return month < 10 ? `0${month}` : month; // Add leading zero if needed
   };
-//   const years = generateNextFiveYears(); // Generate the next five years
+  //   const years = generateNextFiveYears(); // Generate the next five years
 
   return (
     <div className="graphCard">
@@ -51,7 +51,7 @@ export const Graph = (props) => {
 
       <div
         className="graph-wrapper"
-        style={{ minHeight: "400px", height: "100%" }}
+        style={{ minHeight: '400px', height: '100%' }}
       >
         <CChart
           type={props.type}
@@ -67,56 +67,56 @@ export const Graph = (props) => {
                 title: {
                   display: true,
                   text: props?.text,
-                  color: "#000",
+                  color: '#000',
                   font: { size: 16, weight: 700 },
                 },
                 font: {
                   size: 16,
-                  weight: "bold",
+                  weight: 'bold',
                 },
               },
               x: {
                 title: {
                   display: true,
-                  text: "Months",
-                  color: "#000", // Black color
+                  text: 'Months',
+                  color: '#000', // Black color
                   font: {
                     size: 16, // Font size 16px
-                    weight: "bold", // Font weight bold
+                    weight: 'bold', // Font weight bold
                   },
                 },
               },
             },
           }}
-          style={{ height: "400px" }}
+          style={{ height: '400px' }}
           data={{
             labels: props?.label
               ? props?.label
               : [
-                  "Jan",
-                  "Feb",
-                  "Mar",
-                  "Apr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Aug",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dec",
+                  'Jan',
+                  'Feb',
+                  'Mar',
+                  'Apr',
+                  'May',
+                  'Jun',
+                  'Jul',
+                  'Aug',
+                  'Sep',
+                  'Oct',
+                  'Nov',
+                  'Dec',
                 ],
 
-            tension: "0.5",
+            tension: '0.5',
             datasets: [
               {
                 label: props.item.label,
                 fill: props.item.fill,
                 backgroundColor: props.backgroundColor, // Adjust for the fill color
                 ...(props.borderColor && { borderColor: props.borderColor }),
-                pointBackgroundColor: "#2A407A",
+                pointBackgroundColor: '#2A407A',
                 borderWidth: 4,
-                pointBorderColor: "#fff",
+                pointBorderColor: '#fff',
                 data: props.item.data,
                 tension: 0.5,
                 barPercentage: 0.5, // Adjust this value to reduce the bar width

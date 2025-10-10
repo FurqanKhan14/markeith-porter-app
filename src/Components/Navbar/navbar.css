@@ -307,7 +307,7 @@
 
 .dropdown-user .dropdown-menu a.dropdown-item:hover {
   color: var(--bs-white);
-  background-color: var(--bs-primary);
+  background-color: #BD9C4C;
 }
 
 .dropdown-user .dropdown-menu a.dropdown-item:not(:last-child) {
@@ -462,7 +462,7 @@
   min-width: 26px;
 
   svg path {
-    fill: var(--bs-black);
+    fill: #fff;
     transition: all 0.15s ease-out;
   }
 }
@@ -780,7 +780,7 @@
 }
 
 .notiDropdown span.badge {
-  background: var(--bs-black);
+  background: #BD9C4C;
   border: 1px solid var(--secondary-color);
   color: var(--bs-white);
   height: 18px;

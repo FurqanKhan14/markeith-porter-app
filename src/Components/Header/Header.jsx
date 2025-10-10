@@ -1,19 +1,18 @@
-import React from 'react';
-import { Navbar as BootstrapNavbar, Nav, NavDropdown } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Navbar as BootstrapNavbar, Nav } from 'react-bootstrap';
 import {
+  HiOutlineBell,
+  HiOutlineCog,
   HiOutlineHome,
   HiOutlineUser,
-  HiOutlineCog,
-  HiOutlineBell,
 } from 'react-icons/hi';
+import { Link, useNavigate } from 'react-router-dom';
 import useUserStore from '../../Stores/UserStore';
 
-import CustomButton from '../Common/CustomButton';
-import './Header.css';
-import TableActionDropDown from '../TableActionDropDown/TableActionDropDown';
-import { RiUserSettingsLine } from 'react-icons/ri';
 import { LuLogOut } from 'react-icons/lu';
+import { RiUserSettingsLine } from 'react-icons/ri';
+import CustomButton from '../Common/CustomButton';
+import TableActionDropDown from '../TableActionDropDown/TableActionDropDown';
+import './Header.css';
 
 const Header = ({ variant = 'default' }) => {
   const navigate = useNavigate();

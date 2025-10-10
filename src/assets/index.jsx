@@ -4,6 +4,7 @@ import authRightImg from './images/authRightImg.png';
 import adminAuthLogo from './images/adminAuthLogo.png';
 import adminLogo from './images/adminLogo.png';
 import placeholder from './images/placeholder.jpg';
+import ChatIcon from  './images/ChatCircleDots.svg?react';
 
 export const images = {
   Theme1,
@@ -11,5 +12,6 @@ export const images = {
   authRightImg,
   adminAuthLogo,
   adminLogo,
-  placeholder
+  placeholder,
+  ChatIcon
 };

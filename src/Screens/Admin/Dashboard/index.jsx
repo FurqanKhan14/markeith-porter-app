@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import './style.css';
 import {
   ArcElement,
   BarElement,
@@ -42,8 +43,7 @@ ChartJS.register(
   BarElement,
   PointElement,
   LineElement,
-  Filler,
-
+  Filler
 );
 
 export const options = {
@@ -59,7 +59,20 @@ export const options = {
   },
 };
 
-export const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+export const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 export const data = {
   labels,
@@ -69,7 +82,7 @@ export const data = {
       data: [200, -300, 150, 400, -200, 100, 350],
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    }
+    },
   ],
 };
 
@@ -150,7 +163,7 @@ const Dashboard = ({ showModal }) => {
 
     return (
       <div className="d-card chart-padding mt-3">
-        <div className="d-flex justify-content-between mb-3">
+        <div className="d-flex justify-content-between mb-3 align-items-center flex-wrap loaders">
           <div className="flex-grow-1">
             <h4 className="d-card-title flex-grow-1">{title}</h4>
           </div>
@@ -179,20 +192,9 @@ const Dashboard = ({ showModal }) => {
       <Row className="mb-4">
         {cardData?.map((card, index) => (
           <React.Fragment key={card.id}>
-            <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
+            <Col xs={12} md={6} xl={6} xxl={4} className="mb-4">
               <StatsCard item={card} />
             </Col>
-
-            {index === cardData.length - 1 && (
-              <>
-                <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
-                  <StatsCard item={{ id: "extra1", iconName: FaDollarSign, text: "Extra card", number: 1001, increase: 1, image: "faDollarSign", sinceWeek: "10" }} />
-                </Col>
-                <Col xs={12} md={6} xl={4} xxl={3} className="mb-4 mb-xxl-0">
-                  <StatsCard item={{ id: "extra1", iconName: FaDollarSign, text: "Extra card 2", number: 1001, increase: 1, image: "faDollarSign", sinceWeek: "10" }} />
-                </Col>
-              </>
-            )}
           </React.Fragment>
         ))}
       </Row>

@@ -55,7 +55,7 @@ const StatsCard = ({ item }) => {
             <Card.Title as="h4" className="mb-2">{item.text}</Card.Title>
             <Card.Title as="h3" className="mb-0">{item.number}</Card.Title>
           </div>
-          <div className="flex-shrink-0 stats-icon-wrapper">
+          <div className="flex-shrink-0 stats-icon-wrappe">
             {icon ? (
               <FontAwesomeIcon 
                 icon={icon} 
@@ -69,7 +69,7 @@ const StatsCard = ({ item }) => {
           </div>
         </div>
       </Card.Body>
-      <Card.Footer>
+      {/* <Card.Footer>
         <Card.Text>
           <span>{item.increase} % </span>
           {parseFloat(item.increase) > 0 ? (
@@ -85,7 +85,7 @@ const StatsCard = ({ item }) => {
           )}
           {item.sinceWeek}
         </Card.Text>
-      </Card.Footer>
+      </Card.Footer> */}
     </Card>
   );
 };

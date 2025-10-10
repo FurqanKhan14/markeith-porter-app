@@ -132,7 +132,7 @@ ul.pagination {
 
 .pagination a {
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 5px 16px;
   min-width: 40px;
   border-radius: 4px;
   cursor: pointer;
@@ -144,6 +144,7 @@ ul.pagination {
   background-color: var(--content-bg-color);
   user-select: none;
   margin-right: 4px !important;
+  border: 1px solid #a6a6a6;
 }
 .pagination a:last-child {
   margin-right: 0px;
@@ -157,10 +158,11 @@ ul.pagination {
 }
 
 .pagination .active a {
-  background-color: var(--pagination-bg-color);
+  background-color: #FDD91F;
   font-weight: 600;
   border-color: transparent;
   color: var(--pagination-text-color) !important;
+  border: 1px solid #a6a6a6;
 }
 .pagination li.previous.disabled,
 .pagination li.next {

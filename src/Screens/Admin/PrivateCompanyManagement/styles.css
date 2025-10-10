@@ -1,0 +1,20 @@
+.detailsWrapper {
+  max-width: 710px;
+  flex-wrap: wrap;
+}
+
+.detailItem {
+  width: 210px;
+}
+
+.status-badge.status-rejected {
+  color: #ff0000;
+}
+.status-badge.status-pending {
+  color: #ce8d00;
+}
+.btn-accept {
+  background: transparent;
+  border: 1px solid #1e1e2f;
+  color: #1e1e2f !important;
+}
